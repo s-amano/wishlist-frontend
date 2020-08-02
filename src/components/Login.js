@@ -129,7 +129,7 @@ const Login = (props) => {
       if(state.isLoginView) {
         try {
           dispatch({type: START_FETCH})
-          const res = await axios.post('http://127.0.0.1:8000/authen/', state.credentialsLog, {
+          const res = await axios.post('http://52.198.104.94/authen/', state.credentialsLog, {
           headers: {'Content-Type': 'application/json'}})
           props.cookies.set('current-token', res.data.token)
           res.data.token ? window.location.href = "/wishlists" : window.location.href = "/"
@@ -140,7 +140,7 @@ const Login = (props) => {
       } else {
         try {
           dispatch({type: START_FETCH})
-          await axios.post('http://127.0.0.1:8000/api/v1/user/create/', state.credentialsReg, {
+          await axios.post('http://52.198.104.94/api/v1/user/create/', state.credentialsReg, {
           headers: {'Content-Type': 'application/json'}})
           dispatch({type: FETCH_SUCCESS})
           dispatch({type: TOGGLE_MODE})

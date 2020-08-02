@@ -39,7 +39,7 @@ const ApiFetch = (props) => {
   const [amazonLink, setAmazonLink] = useState({link:'', item:''})
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/v1/wishlist/', {
+    axios.get('http://52.198.104.94/api/v1/wishlist/', {
       headers: {
         'Authorization': `Token ${token}`
       }
@@ -58,7 +58,7 @@ const ApiFetch = (props) => {
     const data = {
       title: wish.title
     }
-    axios.post('http://127.0.0.1:8000/api/v1/wishlist/', data,{
+    axios.post('http://52.198.104.94/api/v1/wishlist/', data,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Token ${token}`
@@ -71,7 +71,7 @@ const ApiFetch = (props) => {
 
 
   const deleteWish = (id) => {
-    axios.delete(`http://127.0.0.1:8000/api/v1/wishlist/${id}/`,{
+    axios.delete(`http://52.198.104.94/api/v1/wishlist/${id}/`,{
       headers: {
         'Authorization': `Token ${token}`
       }
@@ -81,7 +81,7 @@ const ApiFetch = (props) => {
 
   const editWish = (wish) => {
 
-    axios.put(`http://127.0.0.1:8000/api/v1/wishlist/${wish.id}/`, wish,{
+    axios.put(`http://52.198.104.94/api/v1/wishlist/${wish.id}/`, wish,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Token ${token}`
@@ -95,7 +95,7 @@ const ApiFetch = (props) => {
 
 
   const getAmazonLink = (id) => {
-    axios.get(`http://127.0.0.1:8000/api/v1/link/${id}/`)
+    axios.get(`http://52.198.104.94/api/v1/link/${id}/`)
     .then(res => {setAmazonLink({link:res.data.link,item:res.data.itemName})})
     .catch(error => {
       const {
